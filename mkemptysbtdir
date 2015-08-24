@@ -1,0 +1,3 @@
+#!/bin/sh
+mkdir -p "$1"/src/{main,test}/{java,resources,scala}
+mkdir -p "$1"/{lib,project,target}

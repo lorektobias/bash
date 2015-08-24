@@ -1,0 +1,26 @@
+#!/bin/sh
+mkdir -p "$1"/src/{main,test}/{java,resources,scala}
+mkdir -p "$1"/{lib,project,target}
+
+echo 'name := "' "$1" '"' > "$1"/build.sbt
+echo 'version := "0.1"' >> "$1"/build.sbt
+echo "
+*.class
+*.log
+
+# sbt specific
+.cache
+.history
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet" >> "$1"/.gitignore
+
+
